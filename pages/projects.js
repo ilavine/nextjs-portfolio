@@ -43,11 +43,13 @@ export function ProjectCard({ project }) {
 
   return (
     <div className="bg-white shadow-lg rounded-lg overflow-hidden flex">
-      <img
-        className="w-1/4 h-64 object-cover"
-        src={project.image}
-        alt={project.name}
-      />
+      <div className="w-1/2 flex justify-center items-center">
+        <img
+          className="h-64 object-cover"
+          src={project.image}
+          alt={project.name}
+        />
+      </div>
       <div className="p-4 w-3/4">
         <h3 className="text-xl font-semibold mb-2">{project.name}</h3>
         <p className="text-gray-700 mb-4">{project.description}</p>
@@ -88,21 +90,29 @@ export function Tools({ onToolClick }) {
     { name: "React.js", link: "/react" },
   ];
 
-  const handleToolClick = (link) => {
+  const [selectedTool, setSelectedTool] = useState(null);
+
+  const handleToolClick = (tool) => {
+    setSelectedTool(tool);
     if (onToolClick) {
-      onToolClick(link);
+      onToolClick(tool);
     }
   };
 
   return (
     <div className="bg-gray-200 p-4 rounded-lg mt-4">
       <h4 className="text-lg font-semibold mb-2 text-center">Tools</h4>
-      <ul className="list-disc list-inside">
+      <ul className="list-group">
         {tools.map((tool) => (
-          <li key={tool.name} className="text-gray-700">
+          <li
+            key={tool.name}
+            className={`list-group-item ${
+              selectedTool === tool.name ? "bg-gray-500 text-white" : ""
+            } border border-gray-300 text-center`}
+          >
             <button
               type="button"
-              className="hover:text-blue-500"
+              className="w-full py-2 px-4 text-sm"
               onClick={() => handleToolClick(tool.name)}
             >
               {tool.name}
@@ -122,7 +132,7 @@ export default function Projects() {
       </Head>
 
       <section>
-        <h1 className="font-bold text-3xl text-center mt-6">Projects</h1>
+        <h1 className="font-bold text-3xl text-center m-4">Projects</h1>
         <hr />
 
         <ProjectMap />
@@ -130,4 +140,3 @@ export default function Projects() {
     </Layout>
   );
 }
-   
