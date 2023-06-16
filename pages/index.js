@@ -22,6 +22,7 @@ export function ArrowIcon() {
     </svg>
   );
 }
+
 export default function Home() {
   return (
     <Layout home>
@@ -29,11 +30,11 @@ export default function Home() {
         <title>{siteTitle}</title>
       </Head>
 
-      <section className="about flex items-center justify-center m-36">
+      <section className="about flex items-center justify-center m-8 sm:m-16 lg:m-24">
         <div className="fn_cs_about_modern">
-          <div className="container">
-            <div className="flex flex-col lg:flex-row">
-              <div className="w-full lg:w-1/2">
+          <div className="container mx-auto">
+            <div className="flex flex-col sm:flex-row">
+              <div className="w-full sm:w-1/2">
                 <div className="relative">
                   <Image
                     src="/profile.jpeg"
@@ -44,8 +45,8 @@ export default function Home() {
                   />
                 </div>
               </div>
-              <div className="w-full lg:w-1/2 pl-12">
-                <div className="main_title text-center lg:text-left">
+              <div className="w-full sm:w-1/2 pl-12">
+                <div className="main_title text-center sm:text-left">
                   <h3 className="text-4xl font-bold text-center mb-6">
                     Yulia Lavine
                   </h3>
@@ -87,39 +88,40 @@ export default function Home() {
 
                     <div className="h-px bg-gray-300 flex-grow"></div>
                   </div>
-                  <p className="text-xl text-center mt-12">
-                    Junior Software Engineer at <br></br>{" "}
-                    <Link href="https://theprogrp.com/" passHref>
-                      <id
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-indigo-500"
-                      >
-                        The Prometheus Group{" "}
-                      </id>
+                  <p className="text-xl text-center sm:text-left mt-12">
+                    Junior Software Engineer at{" "}
+                    <Link
+                
+                      href="https://theprogrp.com/"
+                      passHref
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-indigo-500"
+                    >
+                      The Prometheus Group{" "}
                     </Link>
                   </p>
-                  <p className="text-xl text-center">and Web Developer.</p>
+                  <p className="text-xl text-center sm:text-left">
+                    and Web Developer.
+                  </p>
 
-                  <div class="items-center justify-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4 mt-6">
+                  <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mt-6">
                     <a
                       href="#"
-                      class="w-full sm:w-auto bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700"
+                      className="w-full sm:w-auto bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700"
                     >
-                      <div class="text-left">
-                        <div class="-mt-1  text-sm ">
-                          {" "}
+                      <div className="text-left">
+                        <div className="-mt-1 text-sm">
                           <ArrowIcon /> Download CV
                         </div>
                       </div>
                     </a>
                     <a
                       href="/contact"
-                      class="w-full sm:w-auto bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700"
+                      className="w-full sm:w-auto bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700"
                     >
-                      <div class="text-left">
-                        <div class="-mt-1  text-sm ">
-                          {" "}
+                      <div className="text-left">
+                        <div className="-mt-1 text-sm">
                           <ArrowIcon />
                           Contact Me
                         </div>
@@ -131,7 +133,8 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
-    </Layout>
-  );
+  
+    </section>
+  </Layout>
+);
 }
