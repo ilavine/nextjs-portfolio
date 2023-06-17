@@ -110,7 +110,7 @@ export function Tools({ onToolClick }) {
               selectedTool === tool.name
                 ? "bg-gray-500 text-white"
                 : "bg-gray-200 text-gray-800"
-            } rounded px-2 py-1 text-sm font-semibold`}
+            } rounded px-2 py-1 text-sm font-semibold transition-colors duration-300 hover:bg-gray-400 hover:text-white`}
           >
             <button
               type="button"

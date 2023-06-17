@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import Layout, { siteTitle } from "../components/layout";
 import utilStyles from "../styles/utils.module.css";
@@ -24,6 +25,32 @@ export function ArrowIcon() {
 }
 
 export default function Home() {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  useEffect(() => {
+    // Set the imageLoaded state to true when the image is loaded
+    const handleImageLoad = () => {
+      setImageLoaded(true);
+    };
+
+    const image = document.getElementById("profile-image");
+
+    if (image && image.complete) {
+      // If the image is already loaded, set the imageLoaded state to true
+      setImageLoaded(true);
+    } else if (image) {
+      // If the image is not loaded yet, add an event listener to handle the load event
+      image.addEventListener("load", handleImageLoad);
+    }
+
+    return () => {
+      // Clean up the event listener when the component is unmounted
+      if (image) {
+        image.removeEventListener("load", handleImageLoad);
+      }
+    };
+  }, []);
+
   return (
     <Layout home>
       <Head>
@@ -35,7 +62,7 @@ export default function Home() {
           <div className="container mx-auto">
             <div className="flex flex-col sm:flex-row">
               <div className="w-full sm:w-1/2">
-                <div className="relative">
+                <div className="drop-in relative flex justify-center">
                   <Image
                     src="/profile.jpeg"
                     width={350}
@@ -88,10 +115,9 @@ export default function Home() {
 
                     <div className="h-px bg-gray-300 flex-grow"></div>
                   </div>
-                  <p className="text-xl text-center sm:text-left mt-12">
-                    Junior Software Engineer at{" "}
+                  <p className="text-xl sm:text-center mt-12 ">
+                    Junior Software Engineer at{" "} <br/>
                     <Link
-                
                       href="https://theprogrp.com/"
                       passHref
                       target="_blank"
@@ -101,13 +127,14 @@ export default function Home() {
                       The Prometheus Group{" "}
                     </Link>
                   </p>
-                  <p className="text-xl text-center sm:text-left">
-                    and Web Developer.
+                  <p className="text-xl sm:text-center">
+                    and Frontend Web Developer.
                   </p>
 
-                  <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mt-6">
+                  <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mt-6 flex justify-center">
                     <a
-                      href="#"
+                      href="/resume.pdf"
+                      target="_blank"
                       className="w-full sm:w-auto bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700"
                     >
                       <div className="text-left">
@@ -133,8 +160,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-  
-    </section>
-  </Layout>
-);
+      </section>
+    </Layout>
+  );
 }

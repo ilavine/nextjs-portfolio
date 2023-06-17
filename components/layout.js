@@ -1,63 +1,123 @@
-import { useState } from 'react';
-import Head from 'next/head';
-import Image from 'next/image';
-import styles from './layout.module.css';
-import utilStyles from '../styles/utils.module.css';
-import Link from 'next/link';
-import Sidebar from '../components/sidebar';
+import { useEffect, useState } from "react";
+import Head from "next/head";
+import Link from "next/link";
 
-export const siteTitle = 'Next.js Portfolio - Yulia Lavine';
+export const siteTitle = "Next.js Portfolio - Yulia Lavine";
 
-export default function Layout({ children, home }) {
+export default function Layout({ children }) {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
+  const [showArrowDown, setShowArrowDown] = useState(false);
+  const [showArrowUp, setShowArrowUp] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrollingDown = window.pageYOffset > 0;
+      setShowArrowDown(isScrollingDown);
+    };
+
+    const handleResize = () => {
+      setShowArrowDown(window.innerWidth < 768);
+    };
+
+    const handleScrollUp = () => {
+      setShowArrowUp(window.pageYOffset > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleResize);
+    window.addEventListener("scroll", handleScrollUp);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("scroll", handleScrollUp);
+    };
+  }, []);
 
   const toggleSidebar = () => {
     setSidebarOpen(!isSidebarOpen);
   };
-
+  const [selectedNavItem, setSelectedNavItem] = useState("");
   const navItems = [
-    { path: '/', name: 'Home' },
-    { path: '/resume', name: 'Resume' },
-    { path: '/projects', name: 'Projects' },
-    { path: '/contact', name: 'Contact' },
+    { path: "/", name: "Home", selected: selectedNavItem === "/" },
+    {
+      path: "/resume",
+      name: "Resume",
+      selected: selectedNavItem === "/resume",
+    },
+    {
+      path: "/projects",
+      name: "Projects",
+      selected: selectedNavItem === "/projects",
+    },
+    {
+      path: "/contact",
+      name: "Contact",
+      selected: selectedNavItem === "/contact",
+    },
   ];
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <>
       <Head>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="description" content="Yulia Lavine - Web Developer Portfolio" />
+        <meta
+          name="description"
+          content="Yulia Lavine - Web Developer Portfolio"
+        />
       </Head>
       <div className="flex min-h-screen flex-col md:flex-row bg-gray-100 text-gray-800">
         <aside
           className={`sidebar w-full md:w-64 bg-white p-4 transition-transform duration-150 ease-in ${
-            isSidebarOpen ? '' : '-translate-y-full'
+            isSidebarOpen ? "" : "-translate-y-full"
           } md:translate-y-0 md:shadow-md`}
         >
-          <div className="my-4 w-full border-b-4 border-gray-100 text-center">
-            <span className="font-mono text-xl font-bold tracking-widest">YL</span>
+          <div className="my-4 mt-24 w-full border-b-4 border-gray-100 text-center">
+            <span className="font-mono text-3xl font-bold tracking-widest">
+              YL
+            </span>
           </div>
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col text-xl items-center mt-24">
             <nav className="space-y-2">
-              {navItems.map(({ path, name }) => (
-                <Link key={path} href={path}
-                   className="block">{name}
+              {navItems.map(({ path, name, selected }) => (
+                <Link
+                  key={path}
+                  href={path}
+                  className={`block ${selected ? "text-gray-900" : ""}`}
+                  onClick={() => setSelectedNavItem(path)}
+                >
+                  {name}
                 </Link>
               ))}
             </nav>
           </div>
           <div className="my-4"></div>
         </aside>
-        <main className="main flex-grow flex p-4 transition-all duration-150 ease-in">
+        <main className="main flex-grow flex p-4 transition-all duration-150 ease-in flex justify-center">
           {children}
         </main>
-        <button
-          className="fixed top-4 right-4 md:hidden z-10 bg-white rounded-full p-2 shadow"
-          onClick={toggleSidebar}
-          aria-label={isSidebarOpen ? 'Close sidebar' : 'Open sidebar'}
-        >
-          {isSidebarOpen ? '✖' : 'Open'}
-        </button>
+        {showArrowDown && window.innerWidth < 768 && (
+          <button
+            className="fixed top-4 right-4 z-10 bg-white rounded-full p-2 shadow"
+            onClick={toggleSidebar}
+            aria-label={isSidebarOpen ? "Close sidebar" : "Open sidebar"}
+          >
+            {isSidebarOpen ? "✖" : "Open"}
+          </button>
+        )}
+        {showArrowUp && (
+          <button
+            className="fixed bottom-12 right-12 bg-white-500 rounded-full p-6 shadow"
+            onClick={scrollToTop}
+            aria-label="Scroll to Top"
+          >
+            &#8593;
+          </button>
+        )}
       </div>
     </>
   );

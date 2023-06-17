@@ -61,7 +61,16 @@
   color: black;
   transform: scale(1.5);
 }
-  
 
+.drop-in {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.drop-in--loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 
