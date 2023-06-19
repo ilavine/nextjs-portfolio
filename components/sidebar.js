@@ -33,7 +33,7 @@ export default function Navbar() {
             id="nav"
           >
             <div className="flex flex-row md:flex-col space-x-0 pr-10 mb-2 mt-2 md:mt-0 md: pr-0">
-              {Object.entries(navItems).map(([path, { name }]) => {
+              {Object.entries(navItems).map(([path, { name }], index) => {
                 const isActive = path === pathname;
                 return (
                   <Link
@@ -44,6 +44,9 @@ export default function Navbar() {
                       {
                         'text-neutral-500': !isActive,
                         'font-bold': isActive,
+                        'text-xs md:text-base': true, // Added 'text-base' class for larger text on larger screens
+                        'border-r': index < Object.keys(navItems).length - 1, // Add right border for each item except the last one
+                        'md:border-r-0': true, // Remove border on larger screens
                       }
                     )}
                   >
