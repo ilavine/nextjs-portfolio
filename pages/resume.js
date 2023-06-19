@@ -70,13 +70,27 @@ export default function Resume() {
           <hr className="border-t-2 border-gray-400" />
         </div>
 
+        <div class="flex justify-center">
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            class="w-full sm:w-auto bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700"
+          >
+            <div class="text-left">
+              <div class="-mt-1 text-sm">Download CV </div>
+            </div>
+          </a>
+        </div>
+
         <div className="mb-8">
           <h2 className="text-xl font-bold mb-2">Summary</h2>
           <div className="bg-gray-200 p-4 rounded-lg">
             <p className="text-lg">
-              A Junior Software Engineer in Test, showcasing a track record in the medical device industry. Proficient
-              in Python and C++, holding an Associate of Science degree with a focus on Computer Science from Manchester
-              Community College NH. Aspiring to venture into frontend React web development.
+              A Junior Software Engineer in Test, showcasing a track record in
+              the medical device industry. Proficient in Python and C++, holding
+              an Associate of Science degree with a focus on Computer Science
+              from Manchester Community College NH. Aspiring to venture into
+              frontend React web development.
             </p>
           </div>
         </div>
@@ -97,36 +111,36 @@ export default function Resume() {
           </div>
         </div>
         <div className="mb-8">
-  <h2 className="text-xl font-bold mb-2">Experience</h2>
-  <div className="bg-gray-200 p-4 rounded-lg">
-    <ul className="space-y-4">
-      {experience.map((exp) => (
-        <li key={exp.company}>
-          <h3 className="text-lg font-bold">{exp.company}</h3>
-          <p className="text-md font-semibold">{exp.position}</p>
-          <p className="text-sm">{exp.duration}</p>
-          <p className="text-sm">{exp.description}</p>
-        </li>
-      ))}
-    </ul>
-  </div>
-</div>
-<div className="mb-8">
-  <h2 className="text-xl font-bold mb-2">Education</h2>
-  <div className="bg-gray-200 p-4 rounded-lg">
-    <ul className="space-y-4">
-      {education.map((edu) => (
-        <li key={edu.institution}>
-          <h3 className="text-lg font-bold">{edu.institution}</h3>
-          <p className="text-md">{edu.degree}</p>
-          <p className="text-sm">{edu.duration}</p>
-          <p className="text-sm">{edu.description}</p>
-        </li>
-      ))}
-    </ul>
-  </div>
-</div>
-</section>
-</Layout>
-);
+          <h2 className="text-xl font-bold mb-2">Experience</h2>
+          <div className="bg-gray-200 p-4 rounded-lg">
+            <ul className="space-y-4">
+              {experience.map((exp) => (
+                <li key={exp.company}>
+                  <h3 className="text-lg font-bold">{exp.company}</h3>
+                  <p className="text-md font-semibold">{exp.position}</p>
+                  <p className="text-sm">{exp.duration}</p>
+                  <p className="text-sm">{exp.description}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className="mb-8">
+          <h2 className="text-xl font-bold mb-2">Education</h2>
+          <div className="bg-gray-200 p-4 rounded-lg">
+            <ul className="space-y-4">
+              {education.map((edu) => (
+                <li key={edu.institution}>
+                  <h3 className="text-lg font-bold">{edu.institution}</h3>
+                  <p className="text-md">{edu.degree}</p>
+                  <p className="text-sm">{edu.duration}</p>
+                  <p className="text-sm">{edu.description}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+    </Layout>
+  );
 }
