@@ -10,7 +10,7 @@ const ProjectList = [
   },
   {
     name: "Sandwich Maker",
-    image: "",
+    image: "sandwich.png",
     description:
       "CMS-style blog site, where developers can publish their sandwich creations and comment on other developers' posts as well. Built completely from scratch and deployed through Heroku. Application follows the MVC paradigm in its architectural structure, using Handlebars.js as the templating language. Sequelize as the ORM, and express-session npm package for authentication.",
     tools: ["Sequelize", "Heroku", "Bootstrap", "Node.js", "Handlebars"],

@@ -61,14 +61,14 @@ export default function Home() {
         <div className="fn_cs_about_modern">
           <div className="container mx-auto">
             <div className="flex flex-col sm:flex-row">
-              <div className="w-full sm:w-1/2">
-                <div className="drop-in relative flex justify-center">
+              <div className="w-full sm:w-1/2 flex justify-center">
+                <div className="drop-in relative">
                   <Image
                     src="/profile.jpeg"
-                    width={350}
-                    height={350}
+                    width={300} // Adjust the width value as per your requirement
+                    height={300} // Adjust the height value as per your requirement
                     alt="Picture of the author"
-                    className={`rounded-full ${utilStyles.roundedImage}`}
+                    className={`rounded-full ${utilStyles.roundedImage} mx-auto`}
                   />
                 </div>
               </div>
@@ -116,7 +116,7 @@ export default function Home() {
                     <div className="h-px bg-gray-300 flex-grow"></div>
                   </div>
                   <p className="text-xl sm:text-center mt-12 ">
-                    Junior Software Engineer at{" "} <br/>
+                    Junior Software Engineer at <br />
                     <Link
                       href="https://theprogrp.com/"
                       passHref
