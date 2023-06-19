@@ -29,10 +29,10 @@ export default function Navbar() {
       <div className="lg:sticky lg:top-40">
         <LayoutGroup>
           <nav
-            className="flex flex-row md:flex-col items-center relative px-4 md:mt-12 md:ml-6 md:px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
+            className="flex flex-row md:flex-col items-center md:justify-center relative px-4 md:mt-12 md:ml-6 md:px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
             id="nav"
           >
-            <div className="flex flex-row md:flex-col space-x-0 pr-10 mb-2 mt-2 md:mt-0 md: pr-0">
+            <div className="flex flex-row md:flex-col space-x-0 pr-10 mb-2 mt-2 md:mt-0 pr-0">
               {Object.entries(navItems).map(([path, { name }], index) => {
                 const isActive = path === pathname;
                 return (
@@ -44,13 +44,13 @@ export default function Navbar() {
                       {
                         'text-neutral-500': !isActive,
                         'font-bold': isActive,
-                        'text-xs md:text-base': true, // Added 'text-base' class for larger text on larger screens
+                        'text-sm md:text-base': true, // Added 'text-sm' class for smaller text on mobile screens
                         'border-r': index < Object.keys(navItems).length - 1, // Add right border for each item except the last one
                         'md:border-r-0': true, // Remove border on larger screens
                       }
                     )}
                   >
-                    <span className="relative py-[5px] px-[10px]">
+                    <span className="relative py-1 px-2"> {/* Updated padding values for mobile screens */}
                       {name}
                       {path === pathname ? (
                         <motion.div
