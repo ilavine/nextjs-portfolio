@@ -56,13 +56,14 @@ export function ContactMe() {
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
             <label
-              htmlFor="grid-first-name"
+              htmlFor="firstName"
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
             >
               First Name
             </label>
             <input
-              id="grid-first-name"
+              id="firstName"
+              name="firstName"
               type="text"
               placeholder="Name"
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
@@ -75,13 +76,14 @@ export function ContactMe() {
           </div>
           <div className="w-full md:w-1/2 px-3">
             <label
-              htmlFor="grid-last-name"
+              htmlFor="lastName"
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
             >
               Last Name
             </label>
             <input
-              id="grid-last-name"
+              id="lastName"
+              name="lastName"
               type="text"
               placeholder="Last Name"
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
@@ -93,32 +95,14 @@ export function ContactMe() {
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full px-3">
             <label
-              htmlFor="grid-email"
-              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            >
-              Email Address
+              htmlFor="email"
+              className="block    uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              >
+                 Email Address
             </label>
             <input
-              id="grid-email"
-              type="email"
-              placeholder="********@*****.**"
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-              3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-        </div>
-  
-        <div className="flex flex-wrap -mx-3 mb-6">
-          <div className="w-full px-3">
-            <label
-              htmlFor="grid-email"
-              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            >
-              Email Address
-            </label>
-            <input
-              id="grid-email"
+              id="email"
+              name="email"
               type="email"
               placeholder="********@*****.**"
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
@@ -127,15 +111,18 @@ export function ContactMe() {
             />
           </div>
         </div>
+
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full px-3">
             <label
-              htmlFor="grid-password"
+              htmlFor="message"
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
             >
               Your Message
             </label>
             <textarea
+              id="message"
+              name="message"
               rows="10"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
