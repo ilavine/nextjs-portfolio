@@ -8,7 +8,7 @@ const navItems = {
     name: 'Home',
   },
   '/resume': {
-    name: 'Resume',
+    name: 'About Me',
   },
   '/projects': {
     name: 'Projects',
@@ -25,7 +25,7 @@ export default function Navbar() {
   }
 
   return (
-    <aside className="md:w-[200px] md:flex-shrink-0 -mx-4 md:mx-0 md:px-0">
+    <aside className="md:w-[250px] md:flex-shrink-0 -mx-4 md:mx-0 md:px-0">
       <div className="lg:sticky lg:top-40">
         <LayoutGroup>
           <nav
@@ -44,13 +44,13 @@ export default function Navbar() {
                       {
                         'text-neutral-500': !isActive,
                         'font-bold': isActive,
-                        'text-sm md:text-base': true, // Added 'text-sm' class for smaller text on mobile screens
-                        'border-r': index < Object.keys(navItems).length - 1, // Add right border for each item except the last one
-                        'md:border-r-0': true, // Remove border on larger screens
+                        'text-sm md:text-base': true,
+                        'border-r': index < Object.keys(navItems).length - 1, 
+                        'md:border-r-0': true, 
                       }
                     )}
                   >
-                    <span className="relative py-1 px-2"> {/* Updated padding values for mobile screens */}
+                    <span className="relative py-2 px-4 flex justify-center"> {/* Updated padding values for mobile screens */}
                       {name}
                       {path === pathname ? (
                         <motion.div

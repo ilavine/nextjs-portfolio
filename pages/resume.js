@@ -67,7 +67,7 @@ export default function Resume() {
       <section className="max-w-4xl mx-auto py-8 px-6">
         <div className="mb-8">
           <h1 className="text-3xl font-bold mb-2 text-center">About Me</h1>
-          <hr className="border-t-2 border-gray-400" />
+          <hr />
         </div>
 
         <div class="flex justify-center">

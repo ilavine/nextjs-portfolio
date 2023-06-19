@@ -53,8 +53,6 @@
 
 .roundedImage {
   border-radius: 50%; 
-  -webkit-filter: drop-shadow(5px 5px 5px #666 );
-  filter: drop-shadow(5px 5px 5px #666);
 }
 
 .hoverEffect:hover {

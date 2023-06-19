@@ -51,7 +51,7 @@ export default function Layout({ children }) {
       </Head>
       <div className="flex min-h-screen flex-col md:flex-row bg-gray-100 text-gray-800">
         <aside
-          className={`sidebar w-full md:w-64 bg-white p-4 transition-transform duration-150 ease-in md:translate-y-0 md:shadow-md`}
+          className={`sidebar w-full md:w-64 bg-white p-4 transition-transform duration-150 ease-in md:translate-y-0 md:shadow md:mr-4`}
         >
  <div className="my-4 md:mt-24 w-full border-b-4 border-gray-100 text-center">            <span className="font-mono text-3xl font-bold tracking-widest">
               YL
@@ -67,7 +67,7 @@ export default function Layout({ children }) {
         
         {showArrowUp && (
           <button
-            className="fixed bottom-12 right-12 bg-gray-500 rounded-full p-6 shadow"
+            className="fixed bottom-6 right-6 rounded-full p-2 border-2 border-gray-800"
             onClick={scrollToTop}
             aria-label="Scroll to Top"
           >

@@ -11,8 +11,18 @@ export function ContactMe() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
+  const isFormValid = firstName && email && message;
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!isFormValid) {
+      // Display error message if any of the required fields are empty
+      toast.error("Please fill out all required fields.", {
+        position: toast.POSITION.TOP_CENTER,
+      });
+      return;
+    }
 
     // Send email using EmailJS
     emailjs
@@ -98,6 +108,25 @@ export function ContactMe() {
             />
           </div>
         </div>
+  
+        <div className="flex flex-wrap -mx-3 mb-6">
+          <div className="w-full px-3">
+            <label
+              htmlFor="grid-email"
+              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            >
+              Email Address
+            </label>
+            <input
+              id="grid-email"
+              type="email"
+              placeholder="********@*****.**"
+              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+        </div>
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full px-3">
             <label
@@ -113,7 +142,10 @@ export function ContactMe() {
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             ></textarea>
             <button
-              className="shadow bg-gray-900 hover:bg-gray-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded"
+              disabled={!isFormValid} // Disable button if form is invalid
+              className={`shadow bg-gray-900 hover:bg-gray-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded ${
+                !isFormValid ? "opacity-50 cursor-not-allowed" : ""
+              }`}
               type="submit"
             >
               Send Message

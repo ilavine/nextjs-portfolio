@@ -45,7 +45,7 @@ export function ProjectCard({ project }) {
     <div className="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col md:flex-row">
       <div className="w-full md:w-1/3 flex justify-center items-center">
         <img
-          className="h-64 object-cover"
+          className="h-64 object-fit"
           src={project.image}
           alt={project.name}
         />
@@ -54,25 +54,27 @@ export function ProjectCard({ project }) {
         <h3 className="text-xl font-semibold mb-2">{project.name}</h3>
         <p className="text-gray-700 mb-4">{project.description}</p>
         <div className="flex flex-col md:flex-row md:justify-between items-center">
-          <div className="mb-2 md:mb-0">{toolsList}</div>
-          <div className="space-x-2">
-            <a
-              href={project.repo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-gray-900 hover:bg-gray-400 text-white rounded px-4 py-2 text-sm font-semibold transition-colors duration-300"
-            >
-              View Repo
-            </a>
-            <a
-              href={project.deployedLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-gray-900 hover:bg-gray-400 text-white rounded px-4 py-2 text-sm font-semibold transition-colors duration-300"
-            >
-              View App
-            </a>
-          </div>
+          <div className="mb-2 md:mb-0 flex flex-wrap gap-1">{toolsList}</div>
+         
+        </div>
+        {/* Add buttons at the bottom */}
+        <div className="mt-4 flex justify-end gap-1">
+          <a
+            href={project.repo}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-gray-900 hover:bg-gray-400 text-white rounded px-4 py-2 text-xs font-semibold transition-colors duration-300"
+          >
+            View Repo
+          </a>
+          <a
+            href={project.deployedLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-gray-900 hover:bg-gray-400 text-white rounded px-4 py-2 text-xs font-semibold transition-colors duration-300"
+          >
+            View App
+          </a>
         </div>
       </div>
     </div>
@@ -99,10 +101,34 @@ export function Tools({ onToolClick }) {
     }
   };
 
+  const handleSelectAll = () => {
+    setSelectedTool(null);
+    if (onToolClick) {
+      onToolClick(null);
+    }
+  };
+
   return (
     <div className="bg-gray-200 p-4 rounded-lg mt-4">
-      <h4 className="text-lg font-semibold mb-2 text-center">Tools</h4>
+      <h4 className="text-lg font-semibold mb-2 text-center bg-gray-400">
+        Tools
+      </h4>
       <ul className="flex flex-wrap justify-center">
+        <li
+          className={`inline-block mb-2 mr-2 ${
+            selectedTool === null
+              ? "bg-gray-500 text-white"
+              : "bg-gray-200 text-gray-800"
+          } rounded px-2 py-1 text-sm font-semibold transition-colors duration-300 hover:bg-gray-400 hover:text-white`}
+        >
+          <button
+            type="button"
+            className="w-full text-center"
+            onClick={handleSelectAll}
+          >
+            Select All
+          </button>
+        </li>
         {tools.map((tool) => (
           <li
             key={tool.name}

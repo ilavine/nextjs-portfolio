@@ -61,7 +61,7 @@ export default function Home() {
         <div className="fn_cs_about_modern">
           <div className="container mx-auto">
             <div className="flex flex-col sm:flex-row">
-              <div className="w-full sm:w-1/2 flex justify-center">
+              <div className="w-full sm:w-1/2 flex justify-center m-4">
                 <div className="drop-in relative">
                   <Image
                     src="/profile.jpeg"
