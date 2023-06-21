@@ -3,6 +3,7 @@ import Head from "next/head";
 import Footer from "../components/footer";
 import Navbar from "../components/sidebar";
 import styles from "../styles/utils.module.css";
+import Link from "next/link";
 
 export const siteTitle = "Next.js Portfolio - Yulia Lavine";
 
@@ -55,14 +56,14 @@ export default function Layout({ children }) {
           >
             <div className="my-4 md:mt-24 w-full border-b-4 border-gray-100 text-center">
               {" "}
-              <span className="font-mono text-3xl font-bold tracking-widest">
+              <Link href="/" className="font-mono text-3xl font-bold tracking-widest" style={{ textDecoration: 'none' }}>
                 YL
-              </span>
+              </Link>
             </div>
             <Navbar />
           </aside>
           <main
-            className={`main flex-grow flex ${styles.center} p-4 transition-all duration-150 ease-in overflow-hidden`}
+            className={`main flex-grow flex p-4 transition-all duration-150 ease-in overflow-hidden`}
           >
             {children}
           </main>
