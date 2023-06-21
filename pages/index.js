@@ -61,20 +61,20 @@ export default function Home() {
         <div className="fn_cs_about_modern">
           <div className="container mx-auto">
             <div className="flex flex-col sm:flex-row">
-              <div className="w-full sm:w-1/2 flex justify-center m-4">
+              <div className="w-full sm:w-1/2 mb-4">
                 <div className="drop-in relative">
                   <Image
                     src="/profile.jpeg"
-                    width={300} // Adjust the width value as per your requirement
-                    height={300} // Adjust the height value as per your requirement
+                    width={500} // Adjust the width value as per your requirement
+                    height={500} // Adjust the height value as per your requirement
                     alt="Picture of the author"
                     className={`rounded-full ${utilStyles.roundedImage} mx-auto`}
                   />
                 </div>
               </div>
-              <div className="w-full sm:w-1/2 pl-12">
-                <div className="main_title text-center sm:text-left">
-                  <h3 className="text-4xl font-bold text-center mb-6">
+              <div className="w-full">
+                <div className="main_title text-center">
+                  <h3 className="text-4xl font-bold text-center">
                     Yulia Lavine
                   </h3>
                   <div className="flex justify-center items-center">
