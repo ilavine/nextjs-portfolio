@@ -63,7 +63,7 @@ export default function Layout({ children }) {
             <Navbar />
           </aside>
           <main
-            className={`main flex-grow flex p-4 transition-all duration-150 ease-in overflow-hidden`}
+            className={`main flex-grow justify-center flex p-4 transition-all duration-150 ease-in overflow-hidden`}
           >
             {children}
           </main>
