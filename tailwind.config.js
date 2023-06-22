@@ -13,6 +13,10 @@ module.exports = {
           '50%': { backgroundPosition: '100% 50%' },
         },
       },
+      translate: {
+        '0': '0',
+        '10': '10px',
+      },
     },
   },
   plugins: [],
