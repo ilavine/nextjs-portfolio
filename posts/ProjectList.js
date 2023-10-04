@@ -36,5 +36,24 @@ const ProjectList = [
     repo: "https://github.com/ilavine/devMatch",
     deployedLink: "https://kc-dev-match.herokuapp.com/",
   },
+  {
+    name: "Weather Dashboard",
+    image: "dashboard.png",
+    description:
+      "This is a weather app built with JavaScript and the OpenWeatherMap API. It allows users to search for a city and get the current weather conditions as well as a 5-day forecast.",
+    tools: ["OpenWeatherMap API", "JavaScript", "Bootstrap"],
+    repo: "https://github.com/ilavine/weather-dashboard",
+    deployedLink: "https://ilavine.github.io/weather-dashboard/",
+  },
+  {
+    name: "Employee Tracker",
+    image: "tracker.png",
+    description:
+      "This is a command-line application that allows users to manage employees, departments, and roles in a company. It is built using Node.js and MySQL.",
+    tools: ["Node.js", "MySQL"],
+    repo: "https://github.com/ilavine/employee-tracker",
+    deployedLink: "https://www.youtube.com/watch?v=XpM4n8YPrLY",
+  },
+  
 ];
 export default ProjectList;

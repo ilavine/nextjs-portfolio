@@ -90,6 +90,10 @@ export function Tools({ onToolClick }) {
     { name: "Sequelize", link: "/sequelize" },
     { name: "MongoDB", link: "/mongodb" },
     { name: "React.js", link: "/react" },
+    { name: "GraphQL", link: "/graphql" },
+    { name: "MySQL", link: "/mysql" },
+    { name: "Bootstrap", link: "/bootstrap" },
+
   ];
 
   const [selectedTool, setSelectedTool] = useState(null);
