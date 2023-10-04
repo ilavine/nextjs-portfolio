@@ -47,7 +47,7 @@ const ProjectList = [
   },
   {
     name: "Employee Tracker",
-    image: "tracker.png",
+    image: "tracker.jpeg",
     description:
       "This is a command-line application that allows users to manage employees, departments, and roles in a company. It is built using Node.js and MySQL.",
     tools: ["Node.js", "MySQL"],
